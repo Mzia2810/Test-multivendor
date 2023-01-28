@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <style>
+        body {
+            overflow-x: hidden;
+            height: auto;
+        }
+
+        .login-landing {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 80%;
+        }
+
+        .icpns-head {
+            font-size: 35Spx;
+            color: blue;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            /* width: 100%; */
+            justify-content: center;
+            align-items: center;
+            margin: 50px 0;
+        }
+
+        .content {
+            /* width: 24%; */
+            margin: 15px;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            border-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding-top: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: .4s;
+        }
+
+        .content:hover {
+            box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+            transform: translate(0px, -8px);
+            transition: .6s;
+        }
+
+        .card-img {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .card-button {
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+            width: 100%;
+            padding: 15px;
+            border: 0px;
+            outline: none;
+            cursor: pointer;
+            margin-top: 5px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background-color: #2183a2;
+        }
+
+        .ul-card {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+        }
+
+        .ul-card li {
+            padding: 5px;
+        }
+
+        .ul-card li .fa {
+            color: #ff9f43;
+            font-size: 26px;
+            transition: .4s;
+        }
+
+        .p-card {
+            text-align: center;
+            color: #000000;
+            padding: 0 8px;
+        }
+
+        .carousel-item {
+            height: 500px;
+        }
+
+        .carousel-item img {
+            height: 500px;
+        }
+
+        .seller-heading {
+            margin-left: 20px;
+            width: 90%;
+        }
+
+        .card {
+            position: relative;
+            min-width: 320px;
+            height: 440px;
+            box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin: 30px;
+            transition: 0.5s;
+        }
+
+        .card:nth-child(1) .box .content a {
+            background: #2196f3;
+        }
+
+        .card:nth-child(2) .box .content a {
+            background: #e91e63;
+        }
+
+        .card:nth-child(3) .box .content a {
+            background: #23c186;
+        }
+
+        .card .box {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background: #2a2b2f;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .card .box:hover {
+            transform: translateY(-50px);
+        }
+
+        .card .box:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card .box .content h2 {
+            position: absolute;
+            top: -10px;
+            right: 30px;
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card .box .content h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            z-index: 1;
+            transition: 0.5s;
+            margin-bottom: 15px;
+        }
+
+        .card .box .content a {
+            position: relative;
+            display: inline-block;
+            padding: 8px 20px;
+            background: black;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: 0.5s;
+        }
+
+        .card .box .content a:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+            background: #fff;
+            color: #000;
+        }
+
+        .card .box .content p {
+            color: white;
+        }
+
+        .center {
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        select {
+            z-index: 3;
+            float: left;
+        }
+
+        /** Custom Select **/
+
+        .custom-select-wrapper {
+            position: relative;
+            display: inline-block;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .custom-select-wrapper select {
+            display: none;
+        }
+
+        .custom-select {
+            position: relative;
+            display: inline-block;
+            font: 13px/1.5 "Roboto", sans-serif;
+        }
+
+        .custom-select-trigger {
+            position: relative;
+            display: block;
+            min-width: 130px;
+            padding: 0 104px 0 25px;
+            font-weight: 100;
+            color: #6e7c83;
+            line-height: 50px;
+            background-color: #ffffff;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .custom-select-trigger:hover {
+            -webkit-box-shadow: 0px 10px 50px 0px rgba(43, 111, 246, 0.1);
+            box-shadow: 0px 10px 50px 0px rgba(43, 111, 246, 0.1);
+        }
+
+        .custom-select-trigger:before {
+            position: absolute;
+            display: block;
+            content: "";
+            width: 1px;
+            height: 50px;
+            top: 3px;
+            right: 50px;
+            margin-top: -3px;
+            border-right: 1px solid #c7d1d6;
+            transition: all 0.35s ease-out;
+            transform-origin: 50% 0;
+        }
+
+        .custom-select-trigger:after {
+            position: absolute;
+            display: block;
+            content: "";
+            width: 10px;
+            height: 10px;
+            top: 50%;
+            right: 20px;
+            margin-top: -3px;
+            border-bottom: 1px solid #c7d1d6;
+            border-right: 1px solid #c7d1d6;
+            transform: rotate(45deg) translateY(-50%);
+            transition: all 0.35s ease-out;
+            transform-origin: 50% 0;
+        }
+
+        .custom-select.opened .custom-select-trigger:after {
+            margin-top: 3px;
+            transform: rotate(-135deg) translateY(-50%);
+        }
+
+        .custom-options {
+            position: absolute;
+            display: block;
+            top: 100%;
+            left: 0%;
+            right: 0;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-sizing: border-box;
+            /*  box-shadow: 0 2px 1px rgba(0, 0, 0, .1); */
+            background: #fff;
+            transition: all 0.2s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(-15px);
+            border: 0;
+        }
+
+        .custom-select.opened .custom-options {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+            transform: translateY(-8px);
+            -webkit-box-shadow: 0px 10px 50px 0px rgba(43, 111, 246, 0.1);
+            box-shadow: 0px 10px 50px 0px rgba(43, 111, 246, 0.1);
+        }
+
+        .option-hover:before {
+            background: #f9f9f9;
+        }
+
+        .custom-option {
+            position: relative;
+            display: block;
+            padding: 0 22px;
+            font: 13px/1.5 "Roboto", sans-serif;
+            font-weight: 600;
+            color: #b5b5b5;
+            line-height: 47px;
+            cursor: pointer;
+            transition: all 0.05s ease-in-out;
+        }
+
+        .custom-option:first-of-type {
+            border-radius: 4px 4px 0 0;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .custom-option:last-of-type {
+            border-bottom: 0;
+            border-radius: 0 0 4px 4px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        .custom-option:hover,
+        .custom-option.selection {
+            color: #fff;
+            background-color: #49e2bb;
+        }
+
+        .sel {
+            width: 70%;
+            padding: 10px;
+            /* border-radius: 8px; */
+            color: black;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 2px solid black;
+            MARGIN-BOTTOM: 10PX;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            background-color: rgb(206, 206, 206);
+        }
+
+        .serch-inp {
+            width: 80%;
+            border-radius: 10px;
+            border: 1px solid gray;
+            padding: 10px;
+            color: #000;
+        }
+
+        .img-cardss {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body class="bg-light">
+    <section>
+        <div class="p-3"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 mb-4">
+                    <div class="banner-img">
+                        <img class="img-fluid" src="./images/banner-img.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="login-headig">
+                        <h1 class="text-center" style="text-decoration: underline;"><b>Login</b></h1>
+                    </div>
+                    <form class="row g-3">
+                        <div class=" d-flex justify-content-center" style="width: 100%;">
+                            <div class="login-landing">
+                                <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Email">
+                                    <br>
+                                <!-- <label for="exampleFormControlInput1" class="form-label">Password</label> -->
+                                <input type="password" class="form-control mb-3" id="exampleFormControlInput1"
+                                    placeholder="password">
+                                <button type="submit" class="btn btn-primary mb-3">Login</button>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="conatiner-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="seller-heading  shadow p-4 mt-4" style="border-radius: 20px;">
+                                <h1><i class="icpns-head fa-solid fa-shield-halved me-3"></i>Best Seller </h1>
+                            </div>
+
+                            <div class=" border-2">
+                                <div class="content">
+                                    <img class="card-img" src="./images/shoes.png">
+                                    <h2 style="font-weight: 600;">Shoes</h2>
+                                    <p class="p-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    <h6>$40.00</h6>
+                                    <ul class="ul-card">
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    </ul>
+                                    <div class=" p-4 d-flex justify-content-between">
+                                        <h5>From Seller</h5>
+                                        <h5>seller name</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="seller-heading shadow mt-4 p-4" style="border-radius: 20px;">
+                                <h1><i class=" icpns-head fa-solid fa-wand-magic-sparkles me-3"></i>Creative Ideas</h1>
+                            </div>
+                            <div class=" border-2">
+                                <div class="content">
+                                    <img class="card-img" src="./images/shoes.png">
+                                    <h2 style="font-weight: 600;">Earphone</h2>
+                                    <p class="p-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    <h6>$40.00</h6>
+                                    <ul class="ul-card">
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    </ul>
+                                    <div class=" p-4 d-flex justify-content-between">
+                                        <h5>From Seller</h5>
+                                        <h5>seller name</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="main-carsoul pt-2 mt-3">
+                        <div id="carouselExample" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./images/cars-1.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./images/cars-2.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./images/cars-3.png" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="text-center">
+                                <h1 style="font-size: 50px;font-weight:700">Reviews</h1>
+                            </div>
+                            <div class="leave-review">
+                                <div class="card">
+                                    <div class="box">
+                                        <div class="content">
+                                            <h2>01</h2>
+                                            <img src="./images/th.jfif" class="img-cardss" alt="">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam
+                                                velit? Iure nemo labore inventore?
+                                            </p>
+                                            <a href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="text-center">
+                                <h1 class="text-center" style="font-size: 50px;font-weight:700;">Categories</h1>
+                            </div>
+                            <div class="p-2">
+                                <h3 class="mb-3">Shop Categories</h3>
+                                <div class="true">
+                                    <select name="cars" id="cars" class="sel">
+                                        <option value="volvo">SHOES</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                    <select name="cars" id="cars" class="sel">
+                                        <option value="volvo">NIKE</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                    <select name="cars" id="cars" class="sel">
+                                        <option value="volvo">ADDIDAS</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                    <select name="cars" id="cars" class="sel">
+                                        <option value="volvo">SNEAKERS</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                    <select name="cars" id="cars" class="sel">
+                                        <option value="volvo">SKECHERS</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                    <select name="cars" id="cars" class="sel">
+                                        <option value="volvo">SKECHERS</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+
+                                    <select name="cars" id="cars" class="sel">
+                                        <option value="volvo">SKECHERS</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                    <select name="cars" id="cars" class="sel">
+                                        <option value="volvo">SKECHERS</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="text-center">
+                                <h1 style="font-size: 25px;font-weight:700">Search pro Or Store</h1>
+                            </div>
+                            <div class="d-flex justify-content-center" style="width: 100%;">
+                                <div class=" d-flex justify-content-center bg-white shadow p-4"
+                                    style="width:90%;border-radius:20px">
+                                    <input class="serch-inp me-3" type="text" placeholder="Search Product">
+                                    <button type="button" class="btn btn-primary">Search </button>
+                                </div>
+                            </div>
+                            <div class=" border-2 mt-3">
+                                <div class="content">
+                                    <img class="card-img" src="./images/shoes.png">
+                                    <h2>Earphone</h2>
+                                    <p class="p-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    <h6>$40.00</h6>
+                                    <ul class="ul-card">
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    </ul>
+                                    <div class=" p-4 d-flex justify-content-between">
+                                        <h5>From Seller</h5>
+                                        <h5>seller name</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <section>
+        <div class="container mt-5 mb-5">
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
